@@ -1,0 +1,9 @@
+.o_form_statusbar > .o_statusbar_buttons {
+    width: 100%;
+    justify-content: space-between !important;
+}
+
+.oe_kanban_global_click group {
+    display: flex;
+    width: 100%;
+}

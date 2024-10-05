@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_estate_property_kanban" model="ir.ui.view">
+        <field name="name">estate.property.kanban</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="property_type_id" records_draggable="False">
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <group>
+                                <strong><field name="name"/></strong>
+                            </group>
+                            <group>
+                                <span>Ожидаемая цена: </span>
+                                <field name="expected_price"/>
+                            </group>
+                            <div t-if="record.state.raw_value == 'offer_accepted'">
+                                <group>
+                                    <span>Цена продажи: </span>
+                                    <field name="selling_price"/>
+                                </group>
+                            </div>
+                            <div t-if="record.state.raw_value == 'offer_received'">
+                                <group>
+                                    <span>Лучшая цена: </span>
+                                    <field name="best_price"/>
+                                </group>
+                            </div>
+                            <group>
+                                <field name="tag_ids"/>
+                            </group>
+                            <group>
+                                <field name="state"/>
+                            </group>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

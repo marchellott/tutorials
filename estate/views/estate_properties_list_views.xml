@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="estate_properties_view_tree" model="ir.ui.view">
+        <field name="name">estate.property.tree</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <tree string="Title" decoration-success="offer_count > 0 and state == 'offer_accepted'"
+                decoration-bf="state == 'offer_accepted'"
+                decoration-muted="state == 'sold'">
+                <field name="offer_count"/>
+                <field name="tag_ids"/>
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="bedrooms"/>
+                <field name="living_area"/>
+                <field name="total_area"/>
+                <field name="expected_price"/>
+                <field name="selling_price"/>
+                <field name="date_availability"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
